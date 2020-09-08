@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <% @books.each do |book| %>
-            <tr>
+            <tr id="favorite_<%= book.id %>">
               <%= render "favorites/favorite", book: book %>
             </tr>
           <% end %>
