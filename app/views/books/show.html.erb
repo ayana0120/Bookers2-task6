@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <%= render 'books/error', book: @book %>
+    <div class="col-xs-3">
+      <%= render 'users/user', user: @user %>
+      <%= render 'books/book', book: @newbook %>
+    </div>
+    <div class="col-xs-9">
+      <h1>Book detail</h1>
+      <table class="table table-user-show">
+        <tr>
+          <td><%= attachment_image_tag @user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg"%>   <br><%= link_to @user.name, user_path(@user) %></td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <% if @book.user_id == current_user.id %>
+            <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success"%></td>
+            <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-danger" %></td>
+          <% end %>
+
+        </tr>
+      </table>
+        <tr id="comments_area">
+          <%= render "book_comments/index", book: @book %>
+        </tr>
+          <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+    </div>
+  </div>
+</div>
