@@ -16,12 +16,12 @@
             <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success"%></td>
             <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-danger" %></td>
           <% end %>
-
+          <%= render "favorites/favorite", book: @book %>
         </tr>
       </table>
-        <tr id="comments_area">
+        <div id="comments_area">
           <%= render "book_comments/index", book: @book %>
-        </tr>
+        </div>
           <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
     </div>
   </div>
