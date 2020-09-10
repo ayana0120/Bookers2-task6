@@ -1,18 +1,7 @@
 <div class="row">
   <div class="col-xs-offset-3 col-xs-6">
     <h1>Editing Book</h1>
-    <%= form_for(@book) do |f| %>
-      <% if @book.errors.any? %>
-        <div class="error">
-          <h3><%= @book.errors.count %> errors prohibited this book from being saved:</h3>
-          <ul>
-            <% @book.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    <% end %>
+    <%= render 'books/error', model: @book %>
     <%= render "books/book", book: @book %>
     <div class="menu">
       <%= link_to "Show", book_path(@book) %>
