@@ -33,11 +33,16 @@ clearfix::after {
   margin: 55px 10% 0px 8%;
 }
 
-.notice, .complete {
+.notice, complete {
   color: green;
   }
 .error {
   color: red;
+}
+.error-message {
+  font-size: 12px;
+  list-style: square;
+  margin-left: 60px;
 }
 .actions {
   margin-top: 5px;
